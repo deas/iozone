@@ -24,6 +24,10 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args: 
+            {{- toYaml .Values.args | nindent 12 }}
+          # command:   
+          workingDir: /data
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

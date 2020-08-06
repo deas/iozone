@@ -4,6 +4,10 @@
 
 replicaCount: 1
 
+args:
+- "iozone"
+- "-a"
+
 image:
   repository: pstauffer/iozone
   tag: latest
@@ -13,8 +17,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-persistentVolume: {}
+persistentVolume:
   # storageClass:
+  accessModes:
+  - ReadWriteOnce
   size: 2Gi
 
 serviceAccount:
